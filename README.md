@@ -24,8 +24,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL]()
-- [Live Site URL]()
+- [Solution URL](https://www.frontendmentor.io/solutions/faq-accordion-ldsQW628WP)
+- [Live Site URL](https://fem-questions-accordion.netlify.app)
 
 ## My process
 
