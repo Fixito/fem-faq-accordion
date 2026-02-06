@@ -1,59 +1,65 @@
+@import url('./normalize.css') layer(normalize);
+
+@layer normalize, reset, base;
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400 600 700;
+  font-display: swap;
+  src: url('../fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+:root {
+  --dark-purple: #301534;
+  --pink: #ad28eb;
+  --light-pink: #f8eeff;
+  --pale-purple: #8b6990;
+  --white: #ffffff;
+
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-3xl: 2rem;
+  --fs-6xl: 3.5rem;
+
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --rounded-lg: 0.5rem;
+  --rounded-2xl: 1rem;
+}
+
 @layer base {
-  @font-face {
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 400 600 700;
-    font-display: swap;
-    src: url('../fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+  body {
+    background-color: var(--light-pink);
+    color: var(--dark-purple);
+    line-height: 1.5;
+    font-family: 'Work Sans', sans-serif;
+    font-size: var(--fs-base);
+    font-weight: var(--fw-regular);
+    min-block-size: 100dvh;
   }
 
-  :root {
-    --dark-purple: #301534;
-    --pink: #ad28eb;
-    --light-pink: #f8eeff;
-    --pale-purple: #8b6990;
-    --white: #ffffff;
-
-    --fs-sm: 0.875rem;
-    --fs-base: 1rem;
-    --fs-lg: 1.125rem;
-    --fs-3xl: 2rem;
-    --fs-6xl: 3.5rem;
-
-    --fw-regular: 400;
-    --fw-semibold: 600;
-    --fw-bold: 700;
-
-    --rounded-lg: 0.5rem;
-    --rounded-2xl: 1rem;
+  h1 {
+    margin: 0;
+    line-height: 1;
   }
-}
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  min-block-size: 100dvh;
-  line-height: 1.5;
-  font-family: 'Work Sans', sans-serif;
-  font-size: var(--fs-base);
-  font-weight: var(--fw-regular);
-  color: var(--dark-purple);
-  background-color: var(--light-pink);
-}
-
-h1 {
-  margin: 0;
-  line-height: 1;
-}
-
-p {
-  text-wrap: balance;
+  p {
+    text-wrap: balance;
+  }
 }
 
 summary {
@@ -112,10 +118,9 @@ summary {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  line-height: 1;
   font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
-  list-style: none;
+  line-height: 1;
 
   &:hover {
     color: var(--pink);
@@ -147,17 +152,17 @@ details[open] > .faq__question::after {
   background-size: cover;
 }
 
-details[open] > .faq__answer {
-  padding-block-start: 1.5rem;
-}
-
 .faq__answer {
   font-size: var(--fs-sm);
   font-weight: var(--fw-regular);
   color: var(--pale-purple);
 }
 
-@media screen and (min-width: 640px) {
+details[open] > .faq__answer {
+  padding-block-start: 1.5rem;
+}
+
+@media (width>= 40rem) {
   .pattern {
     background: url(../images/background-pattern-desktop.svg);
   }
