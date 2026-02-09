@@ -27,6 +27,8 @@
   --pale-purple: #8b6990;
   --white: #ffffff;
 
+  --ff-sans: 'Work Sans', sans-serif;
+
   --fs-sm: 0.875rem;
   --fs-base: 1rem;
   --fs-lg: 1.125rem;
@@ -45,30 +47,39 @@
   body {
     background-color: var(--light-pink);
     color: var(--dark-purple);
-    line-height: 1.5;
-    font-family: 'Work Sans', sans-serif;
+    font-family: var(--ff-sans);
     font-size: var(--fs-base);
     font-weight: var(--fw-regular);
+    line-height: normal;
     min-block-size: 100dvh;
   }
 
   h1 {
     margin: 0;
-    line-height: 1;
+    text-wrap: balance;
   }
 
   p {
-    text-wrap: balance;
+    text-wrap: pretty;
+  }
+
+  summary {
+    cursor: pointer;
   }
 }
 
-summary {
-  cursor: pointer;
+main {
+  min-block-size: 100dvh;
+  display: grid;
+  place-content: center;
 }
 
 .pattern {
+  background: url(../images/background-pattern-mobile.svg) bottom / cover no-repeat;
+  position: absolute;
+  inline-size: 100%;
   min-block-size: 14.5rem;
-  background: url(../images/background-pattern-mobile.svg) center;
+  z-index: -1;
 }
 
 .faq-wrapper {
@@ -77,9 +88,6 @@ summary {
 
 .faq {
   max-inline-size: 37.5rem;
-  margin-inline: auto;
-  position: relative;
-  top: -5.6rem;
   padding: 1.5rem;
   display: grid;
   gap: 1.5rem;
@@ -97,8 +105,8 @@ summary {
 
 .faq__icon {
   display: block;
-  inline-size: 1.25rem;
-  aspect-ratio: 1/1;
+  inline-size: 1.5rem;
+  aspect-ratio: 1;
 }
 
 .faq__title {
@@ -116,11 +124,11 @@ summary {
 
 .faq__question {
   display: grid;
+  gap: 1.5rem;
   grid-template-columns: 1fr auto;
   align-items: center;
   font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
-  line-height: 1;
 
   &:hover {
     color: var(--pink);
@@ -141,8 +149,8 @@ summary {
 
 .faq__question::after {
   content: '';
-  width: 1.5rem;
-  aspect-ratio: 1/1;
+  inline-size: 1.5rem;
+  aspect-ratio: 1;
   background: url(../images/icon-plus.svg);
   background-size: cover;
 }
@@ -153,9 +161,10 @@ details[open] > .faq__question::after {
 }
 
 .faq__answer {
+  color: var(--pale-purple);
   font-size: var(--fs-sm);
   font-weight: var(--fw-regular);
-  color: var(--pale-purple);
+  line-height: 1.5;
 }
 
 details[open] > .faq__answer {
@@ -164,11 +173,12 @@ details[open] > .faq__answer {
 
 @media (width>= 40rem) {
   .pattern {
-    background: url(../images/background-pattern-desktop.svg);
+    background-image: url(../images/background-pattern-desktop.svg);
+    min-block-size: 20rem;
   }
 
   .faq__icon {
-    inline-size: 2.1875rem;
+    inline-size: 2.5rem;
   }
 
   .faq__title {
