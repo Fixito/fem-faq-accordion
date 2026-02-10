@@ -21,6 +21,8 @@
 }
 
 :root {
+  interpolate-size: allow-keywords;
+
   --dark-purple: #301534;
   --pink: #ad28eb;
   --light-pink: #f8eeff;
@@ -41,6 +43,14 @@
 
   --rounded-lg: 0.5rem;
   --rounded-2xl: 1rem;
+
+  --transition: 150ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition: none;
+  }
 }
 
 @layer base {
@@ -116,6 +126,44 @@ main {
 
 .faq__item {
   padding-block: 1.25rem;
+
+  &:first-of-type {
+    padding-block-start: 0;
+  }
+
+  &:last-of-type {
+    padding-block-end: 0;
+  }
+}
+
+.faq__item::details-content {
+  color: var(--pale-purple);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  line-height: 1.5;
+
+  block-size: 0;
+  overflow: hidden;
+  content-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .faq__item::details-content {
+    transition:
+      block-size 0.5s allow-discrete,
+      content-visibility 0.5s allow-discrete;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq__item::details-content {
+    transition: none;
+  }
+}
+
+.faq__item[open]::details-content {
+  block-size: auto;
+  content-visibility: visible;
 }
 
 .faq__item:not(:last-of-type) {
@@ -129,46 +177,34 @@ main {
   align-items: center;
   font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
+  transition: color var(--transition);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 
   &:hover {
     color: var(--pink);
   }
-}
 
-.faq .faq__item:first-of-type {
-  padding-block-start: 0;
-}
+  &::-webkit-details-marker {
+    display: none;
+  }
 
-.faq .faq__item:last-of-type {
-  padding-block-end: 0;
-}
+  &::after {
+    content: '';
+    inline-size: 1.5rem;
+    aspect-ratio: 1;
+    background: url(../images/icon-plus.svg) 0 / cover;
+  }
 
-.faq__question::-webkit-details-marker {
-  display: none;
-}
-
-.faq__question::after {
-  content: '';
-  inline-size: 1.5rem;
-  aspect-ratio: 1;
-  background: url(../images/icon-plus.svg);
-  background-size: cover;
-}
-
-details[open] > .faq__question::after {
-  background: url(../images/icon-minus.svg);
-  background-size: cover;
+  [open] &::after {
+    background-image: url(../images/icon-minus.svg);
+  }
 }
 
 .faq__answer {
-  color: var(--pale-purple);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-regular);
-  line-height: 1.5;
-}
-
-details[open] > .faq__answer {
-  padding-block-start: 1.5rem;
+  margin-block-start: 1.5rem;
 }
 
 @media (width>= 40rem) {

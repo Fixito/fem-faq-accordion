@@ -4,14 +4,21 @@ This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://w
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-- [Author](#author)
+- [Frontend Mentor - FAQ accordion solution](#frontend-mentor---faq-accordion-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [Screenshot](#screenshot)
+    - [The challenge](#the-challenge)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+  - [Author](#author)
 
 ## Overview
+
+### Screenshot
+
+![FAQ Accordion](./screenshot.webp)
 
 ### The challenge
 
