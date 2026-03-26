@@ -45,6 +45,8 @@
   --rounded-2xl: 1rem;
 
   --transition: 150ms ease;
+
+  --acordion-width: 37.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -54,6 +56,12 @@
 }
 
 @layer base {
+  *:focus-visible {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: 2px;
+  }
+
   body {
     background-color: var(--light-pink);
     color: var(--dark-purple);
@@ -71,6 +79,10 @@
 
   p {
     text-wrap: pretty;
+  }
+
+  li {
+    list-style-type: none;
   }
 
   summary {
@@ -97,7 +109,6 @@ main {
 }
 
 .faq {
-  max-inline-size: 37.5rem;
   padding: 1.5rem;
   display: grid;
   gap: 1.5rem;
@@ -105,6 +116,7 @@ main {
   font-weight: var(--fw-bold);
   background-color: var(--white);
   border-radius: var(--rounded-lg);
+  box-shadow: 0 32px 56px 0 rgba(80 0 118 / 0.1);
 }
 
 .faq__header {
@@ -115,7 +127,7 @@ main {
 
 .faq__icon {
   display: block;
-  inline-size: 1.5rem;
+  inline-size: 2.5rem;
   aspect-ratio: 1;
 }
 
@@ -124,7 +136,7 @@ main {
   font-weight: var(--fw-bold);
 }
 
-.faq__item {
+.faq__entry {
   padding-block: 1.25rem;
 
   &:first-of-type {
@@ -134,6 +146,10 @@ main {
   &:last-of-type {
     padding-block-end: 0;
   }
+}
+
+.faq__entry:not(:last-of-type) {
+  border-block-end: 1px solid var(--light-pink);
 }
 
 .faq__item::details-content {
@@ -166,10 +182,6 @@ main {
   content-visibility: visible;
 }
 
-.faq__item:not(:last-of-type) {
-  border-block-end: 1px solid var(--light-pink);
-}
-
 .faq__question {
   display: grid;
   gap: 1.5rem;
@@ -177,7 +189,16 @@ main {
   align-items: center;
   font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
+  padding-block: 1.25rem;
   transition: color var(--transition);
+
+  &:first-of-type {
+    padding-block-start: 0;
+  }
+
+  &:last-of-type {
+    padding-block-end: 0;
+  }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
@@ -193,7 +214,7 @@ main {
 
   &::after {
     content: '';
-    inline-size: 1.5rem;
+    inline-size: 1.875rem;
     aspect-ratio: 1;
     background: url(../images/icon-plus.svg) 0 / cover;
   }
@@ -222,12 +243,13 @@ main {
   }
 
   .faq {
+    inline-size: var(--acordion-width);
     border-radius: var(--rounded-2xl);
     padding: 2.5rem;
     gap: 2rem;
   }
 
-  .faq__item {
+  .faq__entry {
     padding-block: 1.5rem;
   }
 
