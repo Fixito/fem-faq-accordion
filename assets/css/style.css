@@ -184,7 +184,6 @@ main {
 
 .faq__question {
   display: grid;
-  gap: 0.25rem;
   grid-template-columns: 1fr auto;
   align-items: center;
   font-size: var(--fs-base);
@@ -274,7 +273,7 @@ main {
   padding-block-end: 0;
 }
 
-@media (width>= 40rem) {
+@media (width >= 40rem) {
   .pattern {
     background-image: url(../images/background-pattern-desktop.svg);
     min-block-size: 20rem;
