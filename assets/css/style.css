@@ -184,7 +184,7 @@ main {
 
 .faq__question {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.25rem;
   grid-template-columns: 1fr auto;
   align-items: center;
   font-size: var(--fs-base);
