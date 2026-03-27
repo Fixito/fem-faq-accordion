@@ -52,7 +52,7 @@
   --transition-color: color var(--duration-color) var(--ease-standard);
   --transition-press: transform var(--duration-press) var(--ease-out);
 
-  --acordion-width: 37.5rem;
+  --accordion-width: 37.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -101,19 +101,22 @@
 main {
   min-block-size: 100dvh;
   display: grid;
-  place-content: center;
+  place-items: center;
+  position: relative;
 }
 
 .pattern {
   background: url(../images/background-pattern-mobile.svg) bottom / cover no-repeat;
   position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
   inline-size: 100%;
   min-block-size: 14.5rem;
   z-index: -1;
 }
 
 .faq-wrapper {
-  padding-inline: 1.5rem;
+  inline-size: min(100% - 3rem, var(--accordion-width));
 }
 
 .faq {
@@ -288,7 +291,7 @@ main {
   }
 
   .faq {
-    inline-size: var(--acordion-width);
+    inline-size: var(--accordion-width);
     border-radius: var(--rounded-2xl);
     padding: 2.5rem;
     gap: 2rem;
