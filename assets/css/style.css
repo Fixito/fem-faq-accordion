@@ -44,6 +44,8 @@
   --rounded-lg: 0.5rem;
   --rounded-2xl: 1rem;
 
+  --shadow-2xl: 0 32px 56px 0 rgba(80 0 118 / 0.1);
+
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-standard: ease;
   --duration-press: 120ms;
@@ -127,7 +129,7 @@ main {
   font-weight: var(--fw-bold);
   background-color: var(--white);
   border-radius: var(--rounded-lg);
-  box-shadow: 0 32px 56px 0 rgba(80 0 118 / 0.1);
+  box-shadow: var(--shadow-2xl);
 }
 
 .faq__header {
@@ -201,10 +203,6 @@ main {
 
   &:hover {
     color: var(--pink);
-  }
-
-  &:active {
-    transform: scale(0.985);
   }
 
   &::-webkit-details-marker {
@@ -297,13 +295,13 @@ main {
     gap: 2rem;
   }
 
-  .faq__entry + .faq__entry .faq__question {
-    padding-block-start: 1.5rem;
-  }
-
   .faq__question {
     font-size: var(--fs-lg);
     padding-block-end: 1.5rem;
+  }
+
+  .faq__entry + .faq__entry .faq__question {
+    padding-block-start: 1.5rem;
   }
 
   .faq__entry:last-of-type .faq__question {
