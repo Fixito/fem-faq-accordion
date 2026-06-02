@@ -195,7 +195,10 @@ main {
   font-weight: var(--fw-semibold);
   padding-block: 0 1.25rem;
   transform-origin: left center;
-  transition: var(--transition-color), var(--transition-press);
+  transition:
+    var(--transition-color),
+    var(--transition-press),
+    padding-block-end var(--duration-expand) var(--ease-out);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
@@ -266,8 +269,8 @@ main {
 }
 
 .faq__answer {
-  margin-block-start: 1.5rem;
-  padding-block-end: 1.5rem;
+  margin: 0;
+  padding-block: 1.5rem;
 }
 
 .faq__entry:last-of-type .faq__answer {
