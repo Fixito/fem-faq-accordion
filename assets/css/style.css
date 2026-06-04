@@ -190,6 +190,7 @@ main {
 .faq__question {
   display: grid;
   grid-template-columns: 1fr auto;
+  column-gap: 1.5rem;
   align-items: center;
   font-size: var(--fs-base);
   font-weight: var(--fw-semibold);
